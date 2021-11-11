@@ -23,5 +23,17 @@ const graph = {
 };
 
 
+
+// this has cyclic nodes... (From Java examples)
+// to guard against cyclic shit, look at undirectedPath.js
+const graph2 = {
+    0: [1, 2],
+    1: [2],
+    2: [0, 3],
+    3: [3]
+}
+
+
 breathFirstPrint(graph, 'a')
+breathFirstPrint(graph2, 2)
 

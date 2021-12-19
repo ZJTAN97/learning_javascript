@@ -1,3 +1,7 @@
+// go deeper in the tree first then go across the tree.
+// makes use of stack, and "visited" like BFS 
+// Time Complexity: O(n), Space Complexity: O(n)
+
 class Node {
     constructor(val) {
         this.val = val;
@@ -6,27 +10,25 @@ class Node {
     }
 }
 
-
 const depthFirstValues = (root) => {
-    if (root === null) return [];
+    if(root === null) return [];
     const result = [];
-    const stack = [ root ]; // push and pop
-    while(stack.length > 0) {
+    const stack = [ root ];
+
+    while (stack.length > 0) {
         const current = stack.pop();
         result.push(current.val);
-        if (current.right) stack.push(current.right); 
-        if (current.left) stack.push(current.left); // left child on top of stack
-    }
-    console.log(result);
+        if(current.left) stack.push(current.left);
+        if(current.right) stack.push(current.right); 
+    }    
     return result;
 }
 
 
-const depthFirstRecursive = (root) => {
-    if (root === null) return [];
-    const leftValues = depthFirstRecursive(root.left);
-    const rightValues = depthFirstRecursive(root.right);
-    // console.log([root.val, ...leftValues, ...rightValues])
+const depthFirstValuesRecursive = (root) => {
+    if(root === null) return [];
+    const leftValues = depthFirstValuesRecursive(root.left);
+    const rightValues = depthFirstValuesRecursive(root.right);
     return [ root.val, ...leftValues, ...rightValues ];
 }
 
@@ -44,7 +46,8 @@ b.left = d;
 b.right = e;
 c.right = f;
 
+console.log(depthFirstValues(a));
+console.log(depthFirstValues(null));
 
-depthFirstValues(a);
-const answer = depthFirstRecursive(a);
-console.log(answer);
+console.log(depthFirstValuesRecursive(a));
+console.log(depthFirstValuesRecursive(null));

@@ -1,9 +1,58 @@
 ## Array.prototype.reduce()
 - The reduce() method executes a user-supplied "reducer" callback function on each element of the array
-
+<br>
 
 ## JavaScript callback
 - Any function that is passed as an argument to another function so that it can be executed in that
 another function is called as a callback function.
 ### Need of callback function
-- 
+- we need callback functions because many JavaScript actions are asynchronous, which means they do not really stop the program from running
+until they are completed. 
+- A callback's primary purpose is to execute code in response to an event. These events might be user-initiated, such as mouse clicks or typing.
+- e.g. `button.addEventListener('click', callback)`
+<br>
+
+
+## What is the difference between a variable that is null, undefined and undeclared.
+- `Undeclared` variables are created when you assign a value to an identifier that is not previously created using `var`, `let`, `const`.
+such a variable is defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assin
+an undeclared variable. AVOID THIS.
+
+- `undefined` is a variable that is declared but not assigned a value. type of `undefined`. 
+
+- `null` variables will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the
+sense that it has been explicitly assigned.
+<br>
+
+
+## What is a closure, and how/why would you use one?
+- Closure is when you have a function defined inside of another function, that inner function has access to the variables
+and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible
+outside of that function.
+<img src="https://user-images.githubusercontent.com/68308477/147716546-1da62dfd-0341-44b4-8d26-aa182c6217ec.png" width="400" height="350">
+- Closures from definition requires more memory and computation
+- Use closures for data encapsulation
+<br>
+
+
+
+## Describe main difference between `.forEach` and `.map()` and when to choose which
+`forEach`
+- Iterates through the elements in an array
+- Executes a callback for each element.
+- Does not return a value
+`map`
+- Iterates through the elements in an array
+- "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+
+- The main difference is that `.map()` returns a new array while `.forEach` does not (returns undefined)
+- If you simply need to iterate over an array, `forEach` is a fine choice
+- If you need the result but do not wish to mutate the original array, `.map()` is the clear choice.
+
+
+
+## Describe difference between a cookie, sessionStorage and localStorage
+- All are key-value storage mechanisms on client side. Only able to store value as strings.
+<img src="https://user-images.githubusercontent.com/68308477/147715033-7504b723-e50a-4cfa-9685-f680f88f37a3.png" width="900" height="500">
+- If user decides to clear browsing data, this will clear out any cookie, localstorage and session storage stored.
+<br>

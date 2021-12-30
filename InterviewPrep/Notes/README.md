@@ -1,8 +1,3 @@
-## Array.prototype.reduce()
-- The reduce() method executes a user-supplied "reducer" callback function on each element of the array
-<hr>
-<br>
-
 ## Synchronous vs Asynchronous JavaScript
 <img src="https://user-images.githubusercontent.com/68308477/147720410-af6f4f23-e9cb-4f93-896d-955d5b8151db.png" width="450" height="300">
 

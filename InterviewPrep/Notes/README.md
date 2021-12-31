@@ -77,6 +77,22 @@ outside of that function.
 <br>
 
 
+## What are the benefits of using spread syntax and how is it different from rest syntax?
+- `spread` syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or
+objects without resorting to `Object.create`, `slice` or a library function
+- `rest` offers a shorthand for including an arbitary number of arguments to be passed to a function.
+- refer to SpreadRest.js for examples.
+<hr>
+<br>
+
+
+## Deep and Shallow Copy
+- `Deep Copy` means that all of the values of the new variable are copied and disconnected from the original variable.
+- `Shallow Copy` means that certain sub-values are still connected to the original variable.
+- For Primitive data types (`Number`, `String`, `Boolean`, `undefined`, `null`), if you make a copy, it will be a real copy.
+- For Composite data types (`Objects`, `Arrays`), it will result in shallow copy.
+
+
 ## Describe difference between a cookie, sessionStorage and localStorage
 - All are key-value storage mechanisms on client side. Only able to store value as strings.
 <img src="https://user-images.githubusercontent.com/68308477/147715033-7504b723-e50a-4cfa-9685-f680f88f37a3.png" width="900" height="500">

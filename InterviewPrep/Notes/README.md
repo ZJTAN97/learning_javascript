@@ -102,6 +102,13 @@ objects without resorting to `Object.create`, `slice` or a library function
 <br>
 
 
+## Hoisting
+- Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or current function)
+- go through the examples here would be the best. https://www.w3schools.com/js/js_hoisting.asp
+<hr>
+<br>
+
+
 ## Describe difference between a cookie, sessionStorage and localStorage
 - All are key-value storage mechanisms on client side. Only able to store value as strings.
 <img src="https://user-images.githubusercontent.com/68308477/147715033-7504b723-e50a-4cfa-9685-f680f88f37a3.png" width="900" height="500">

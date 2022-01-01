@@ -45,7 +45,7 @@ an undeclared variable. AVOID THIS.
 - `undefined` is a variable that is declared but not assigned a value. type of `undefined`. 
 
 - `null` variables will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the
-sense that it has been explicitly assigned.
+sense that it has been explicitly assigned. if you use `typeof(null)` will return `object`
 <hr>
 <br>
 
@@ -91,6 +91,11 @@ objects without resorting to `Object.create`, `slice` or a library function
 - `Shallow Copy` means that certain sub-values are still connected to the original variable.
 - For Primitive data types (`Number`, `String`, `Boolean`, `undefined`, `null`), if you make a copy, it will be a real copy.
 - For Composite data types (`Objects`, `Arrays`), it will result in shallow copy.
+
+
+## Difference between attributes and properties
+- An `attribute` is the initial state when rendered in the DOM
+- `property` is the current state
 
 
 ## Describe difference between a cookie, sessionStorage and localStorage

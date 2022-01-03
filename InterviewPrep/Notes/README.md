@@ -24,8 +24,7 @@ The famous `Event Loop`
 <hr>
 <br>
 
-<hr>
-<br>
+
 ## JavaScript callback
 - Any function that is passed as an argument to another function so that it can be executed in that
 another function is called as a callback function.
@@ -37,8 +36,7 @@ until they are completed.
 <hr>
 <br>
 
-<hr>
-<br>
+
 ## What is the difference between a variable that is null, undefined and undeclared.
 - `Undeclared` variables are created when you assign a value to an identifier that is not previously created using `var`, `let`, `const`.
 such a variable is defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assin

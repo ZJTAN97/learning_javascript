@@ -28,6 +28,5 @@ a.left = b;
 a.right = c;
 c.left = d;
 c.right = e;
-// d.left = f;
 
 console.log(maxDepth(a));

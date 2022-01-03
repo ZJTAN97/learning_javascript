@@ -109,6 +109,16 @@ objects without resorting to `Object.create`, `slice` or a library function
 <br>
 
 
+## Difference between `==` and `===` operators
+- Both are comparison operators. The difference between both the operators is that,“==” is used to compare values whereas, “ === “ is used to compare both value and types.
+
+
+## What is NaN property in JavaScript?
+- NaN property represents "Not-a-Number" value. It indicates a value which is not a legal number.
+- `typeof` Nan will return `Number`
+- check by using `isNan()` function
+
+
 ## Describe difference between a cookie, sessionStorage and localStorage
 - All are key-value storage mechanisms on client side. Only able to store value as strings.
 <img src="https://user-images.githubusercontent.com/68308477/147715033-7504b723-e50a-4cfa-9685-f680f88f37a3.png" width="900" height="500">

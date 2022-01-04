@@ -123,6 +123,22 @@ objects without resorting to `Object.create`, `slice` or a library function
 <br>
 
 
+## Difference between Slice, Splice
+`slice()`
+- this method copies a given part of an array and returns the copied part as a new array
+- does not change original array
+- `array.slice(from, until)`
+
+`splice()`
+- this method changes the original array by adding or removing elements
+- `array.splice(index, number of elements)`;
+- index is the starting point for removing elements eg. index=2, elements starting from index 2 will be removed
+- for adding elements, we need to give the 3rd, 4th, 5th parameter (depending how many to add)
+
+<hr>
+<br>
+
+
 ## Describe difference between a cookie, sessionStorage and localStorage
 - All are key-value storage mechanisms on client side. Only able to store value as strings.
 <img src="https://user-images.githubusercontent.com/68308477/147715033-7504b723-e50a-4cfa-9685-f680f88f37a3.png" width="900" height="500">

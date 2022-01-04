@@ -12,8 +12,8 @@ from another function, and assign it to a variable.
 - refer to AsyncSync.js for example.
 
 ### How JavaScript Callback Queue works (aka Task Queue)
-The famous `Event Loop`
 <img src="https://user-images.githubusercontent.com/68308477/147720923-68922a3e-e143-44f3-a7ee-55fd68d2bb9a.png" width="350" height="280">
+The famous `Event Loop`
 - The engine creates a `loop` to look into the queue periodically to find what it needs to pull from there.
   1. It pulls a callback function from the queue to the call stack when the stack is empty.
   2. When Browser API (async stuffs) occur, park the callback functions in a queue.
@@ -105,6 +105,20 @@ objects without resorting to `Object.create`, `slice` or a library function
 ## Hoisting
 - Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or current function)
 - go through the examples here would be the best. https://www.w3schools.com/js/js_hoisting.asp
+<hr>
+<br>
+
+
+## Difference between `==` and `===` operators
+- Both are comparison operators. The difference between both the operators is that,“==” is used to compare values whereas, “ === “ is used to compare both value and types.
+<hr>
+<br>
+
+
+## What is NaN property in JavaScript?
+- NaN property represents "Not-a-Number" value. It indicates a value which is not a legal number.
+- `typeof` Nan will return `Number`
+- check by using `isNan()` function
 <hr>
 <br>
 

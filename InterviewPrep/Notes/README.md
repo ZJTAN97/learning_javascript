@@ -145,3 +145,8 @@ objects without resorting to `Object.create`, `slice` or a library function
 - If user decides to clear browsing data, this will clear out any cookie, localstorage and session storage stored.
 <hr>
 <br>
+
+
+## Why use store management (redux) instead of app storage (localStorage, sesssionStorage)?
+- Store management handles the rendering for us.
+- If you use localStorage and sessionStorage, you will have to handle the re-rendering yourself.

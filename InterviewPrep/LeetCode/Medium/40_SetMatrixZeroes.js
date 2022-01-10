@@ -42,9 +42,7 @@ const setZeros2 = function(matrix) {
 
     // determine which rows/cols need to be zero
     for(let r=0; r<numRows; r++) {
-
         for(let c=0; c<numCols; c++) {
-
             if (matrix[r][c] === 0) {
                 matrix[0][c] = 0;
                 if (r>0) matrix[r][0] = 0;
@@ -55,11 +53,8 @@ const setZeros2 = function(matrix) {
 
 
     for(let r=1; r<numRows; r++) {
-
         for(let c=1; c<numCols; c++) {
-
             if(matrix[0][c] === 0 || matrix[r][0] === 0) matrix[r][c] = 0
-        
         }
     }
 

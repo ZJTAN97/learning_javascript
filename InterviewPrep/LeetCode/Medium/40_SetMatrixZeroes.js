@@ -40,7 +40,7 @@ const setZeros2 = function(matrix) {
 
     let rowZero = false;
 
-    // determine which rows/cols need to be zero
+    // 1. determine which rows/cols need to be zero
     for(let r=0; r<numRows; r++) {
         for(let c=0; c<numCols; c++) {
             if (matrix[r][c] === 0) {
@@ -51,21 +51,21 @@ const setZeros2 = function(matrix) {
         }
     }
 
-
+    // 2. zero the respective rows/cols based on the marking done in the first step.
     for(let r=1; r<numRows; r++) {
         for(let c=1; c<numCols; c++) {
             if(matrix[0][c] === 0 || matrix[r][0] === 0) matrix[r][c] = 0
         }
     }
 
-    // zero out first col if need to
+    // 3. zero out first col if need to
     if (matrix[0][0] === 0) {
         for(let r=0; r<numRows; r++) {
             matrix[r][0] = 0
         }
     } 
 
-    // zero out first row if need to
+    // 4. zero out first row if need to
     if(rowZero) {
         matrix[0] = new Array(matrix[0].length).fill(0);
     }

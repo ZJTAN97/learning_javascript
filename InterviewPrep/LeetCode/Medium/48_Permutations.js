@@ -6,23 +6,26 @@
 
     let result = [];
 
-    const dfs = (nums, path, used, result) => {
-        if(path.length === nums.length) {
+    const dfs = (nums, permutation, used, result) => {
+
+        // base case
+        if(permutation.length === nums.length) {
             // make deep copy otherwise we will append same list over and over
-            result.push(Array.from(path));
+            result.push(Array.from(permutation));
             return;
         }
 
         for(let i=0; i<nums.length; i++) {
-            // skip used letters
-            if(used[i]) continue;
-            // add num to permutation, mark letter as read
-            path.push(nums[i]);
-            used[i] = true;
-            dfs(nums, path, used, result);
-            // remove letter from permutation, mark letter as unused
-            path.pop();
-            used[i] = false;
+            if(!used[i]) {
+                // add num to permutation, mark as used.
+                permutation.push(nums[i]);
+                used[i] = true;
+                dfs(nums, permutation, used, result);
+                // remove num from permutation and mark as unused
+                permutation.pop();
+                used[i] = false;
+            }
+
         }
     }
 
@@ -33,8 +36,19 @@
 
 };
 
-
-
-const eg1 = [1,2,3];
-
+const eg1 = [1, 2, 3];
 permute(eg1);
+
+
+/**
+ * Backtracking Recipe
+ * void BackTrack(res, args)
+ *     if ( GOAL REACHED )
+ *          add solution to res
+ *          return
+ *     for (int i=-; i< num_choices; i++)
+ *          if(CHOICES[i] is valid)
+ *              make choices[i]
+ *              Backtrack(res, args)
+ *              undo choices[i]
+ */ 

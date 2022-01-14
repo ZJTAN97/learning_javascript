@@ -150,3 +150,14 @@ objects without resorting to `Object.create`, `slice` or a library function
 ## Why use store management (redux) instead of app storage (localStorage, sesssionStorage)?
 - Store management handles the rendering for us.
 - If you use localStorage and sessionStorage, you will have to handle the re-rendering yourself.
+
+
+## JavaScript `Array.prototype.some()`
+- The `some()` method tests whether at least one element in the array passes the test implemented
+by the provided function
+- It does not modify the array
+
+
+## JavaScript `Array.prototype.every()`
+- The `every()` method tests whether all elements in the array pass the test implemented by the provided
+function. 

@@ -11,7 +11,7 @@
         // base case
         if(permutation.length === nums.length) {
             // make deep copy otherwise we will append same list over and over
-            result.push(Array.from(permutation));
+            result.push(Array.from(permutation.slice()));
             return;
         }
 
@@ -20,8 +20,11 @@
                 // add num to permutation, mark as used.
                 permutation.push(nums[i]);
                 used[i] = true;
+
+                // Branch 1. Continue digging depper
                 dfs(nums, permutation, used, result);
-                // remove num from permutation and mark as unused
+
+                // Branch 2. Back track remove num from permutation and mark as unused
                 permutation.pop();
                 used[i] = false;
             }

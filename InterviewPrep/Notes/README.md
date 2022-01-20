@@ -125,14 +125,29 @@ objects without resorting to `Object.create`, `slice` or a library function
 ## 12. Difference between Slice, Splice
 `slice()`
 - this method copies a given part of an array and returns the copied part as a new array
-- does not change original array
-- `array.slice(from, until)`
+- does not change original array (immutable!!)
+- Used to pick elements from array
+```
+let arrayIntegers = [1, 2, 3, 4, 5];
+let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
+let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
+let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
+```
 
 `splice()`
-- this method changes the original array by adding or removing elements
-- `array.splice(index, number of elements)`;
-- index is the starting point for removing elements eg. index=2, elements starting from index 2 will be removed
-- for adding elements, we need to give the 3rd, 4th, 5th parameter (depending how many to add)
+- this method changes the original array (mutable) by adding or removing elements
+- The first argument specifies the array position for insertion or deletion
+- The optional second argument indicates the number of elements to be deleted.
+- Subsequent additional argument is added to the array.
+```
+let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
+let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
+let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
+
+let arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array: [3, 4, 5]
+let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
+let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
+```
 <hr>
 <br>
 
@@ -168,7 +183,6 @@ function.
 
 
 ## 17. Difference between Call, Apply and Bind
-
 Call: The `call()` method invokes a function with a given `this` value and arguments provided one by one
 - with `call()`, an object can use a method belonging to another object.
 ```
@@ -183,4 +197,42 @@ function invite(greeting1, greeting2) {
 invite.call(employee1, 'Hello', 'How are you?'); // Hello John Rodson, How are you?
 invite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
 ```
+
+Apply: Invokes the function with a given this value and allows you to pass in arguments as an array
+```
+var employee1 = {firstName: 'John', lastName: 'Rodson'};
+var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
+
+function invite(greeting1, greeting2) {
+    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
+}
+
+invite.apply(employee1, ['Hello', 'How are you?']); // Hello John Rodson, How are you?
+invite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?
+```
+
+bind: returns a new function, allowing you to pass any number of arguments
+```
+var employee1 = {firstName: 'John', lastName: 'Rodson'};
+var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
+
+function invite(greeting1, greeting2) {
+    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
+}
+
+var inviteEmployee1 = invite.bind(employee1);
+var inviteEmployee2 = invite.bind(employee2);
+inviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you?
+inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
+```
+
+- `Call` and `apply` are very similar, both execute current function immediately. 
+- To choose between `Call` and `apply` is to decide whether you want to send in an array or 
+comma seperated list of arguments.
+- `Bind` creates a new function that will have `this` set to the first parameter passed to bind().
+<hr>
+<br>
+
+
+## 
 

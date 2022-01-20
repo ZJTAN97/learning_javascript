@@ -234,5 +234,14 @@ comma seperated list of arguments.
 <br>
 
 
-## 
+## 18. Comparing Object and Map
+- Keys of an `Object` are strings and symbols while Map accepts any values (`function`, `object` and any primitive).
+- Keys in `Map` are ordered while keys added to Object are not. Thus when iterating over, a `Map` object return keys
+in order of insertion.
+- Can get size of `Map` with size property but number of properties on Object must be determined manually.
+- `Map` is iterable and thus can be directly iterated. Iterating over object requires obtaining its keys and iterating over them.
+<hr>
+<br>
+
+
 

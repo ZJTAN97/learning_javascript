@@ -8,23 +8,23 @@
 
     const result = [];
 
-    const backtrack = (start, combi) => {
+    const backTrack = (index, combination) => {
 
-        // base case 
-        if(combi.length === k) {
-            result.push(combi.slice());
+        if(combination.length === k) {
+            result.push(combination.slice());
             return;
         }
 
-        for(let i=start; i<n+1; i++) {
-            combi.push(i);
-            backtrack(i+1, combi);
-            combi.pop();
+        for(let i=index; i<n; i++) {
+            combination.push(i+1);
+            backTrack(i+1, combination);
+            combination.pop();
         }
 
     }
 
-    backtrack(1, []);
+    backTrack(0, []);
+
     return result;
 };
 

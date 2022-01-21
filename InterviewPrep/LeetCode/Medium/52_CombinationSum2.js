@@ -6,49 +6,34 @@
  const combinationSum2 = function(candidates, target) {
     
     const result = [];
+    candidates = candidates.sort((a,b) => a - b);
 
-    const backTrack = (index, combination, used) => {
+    const backTrack = (index, combination) => {
 
-        
-        const currSum = combination.reduce((a, b) => a+b, 0);
+        const sum = combination.reduce((a,b) => a+b, 0);
 
-        if(currSum === target) {
-
-            const checkDuplicate = result.some(
-                r => r.length === combination.length &&
-                 r.sort().every((value, index) => combination.sort()[index] === value)
-            )
-
-            if(!checkDuplicate) {
-                result.push(combination.slice());
-            }
-
-            return;           
+        if(sum === target) {
+            result.push(combination.slice());
+            return;
         }
 
-        for(let i=index; i<candidates.length; i++) {
-            if(!used[i]) {
-                combination.push(candidates[i]);
-                used[i] = true;
-            }
-            if(currSum < target) {
-                backTrack(i+1, combination, used);
+        for(let i=index; i < candidates.length; i++) {
+            // skip iteration to avoid duplication
+            if(i !== index && candidates[i] === candidates[i-1]) continue;
+            combination.push(candidates[i]);
+            if(sum < target) {
+                backTrack(i+1, combination);
             }
             combination.pop();
-            used[i] = false;
         }
     }
-
-    backTrack(0, [], Array(candidates.length).fill(false));
-
-
+    backTrack(0, []);
     console.log(result);
-
     return result;
 
 };
 
-const candidates = [4,4,2,1,4,2,2,1,3];
-const target = 6;
+const candidates = [10,1,2,7,6,1,5];
+const target = 8;
 
 combinationSum2(candidates, target);

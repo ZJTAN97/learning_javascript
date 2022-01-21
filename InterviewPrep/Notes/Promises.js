@@ -43,3 +43,23 @@ Promise.race([
 ]).then((message) => {
     console.log(message);
 })
+
+
+
+const myPromise = new Promise((resolve, reject) => {
+    let connection = true;
+    if(connection) {
+        resolve({
+            id: 1,
+            name: "docker",
+        });
+    } else {
+        reject("Connection Refused")
+    }
+})
+
+
+myPromise.then((message) => {
+    console.log(message.name);
+})
+.catch((err) => console.log(err));

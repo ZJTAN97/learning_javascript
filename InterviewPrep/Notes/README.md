@@ -23,6 +23,18 @@ The famous `Event Loop`
   4. The event loop checks if there is a callback function in the queue.
   5. If so, pull callback function from the queue to the stack and execute.
   6. continue loop.
+
+
+`Synchronous`
+
+Stops execution of further code until this is done.
+Because it this stoppage of further execution, synchronous code is called 'blocking'. Blocking in the sense that no other code will be executed.
+
+`Asynchronous` 
+
+Execution of this is deferred to the event loop, this is a construct in a JS virtual machine which executes asynchronous functions (after the stack of synchronous functions is empty).
+Asynchronous code is called non blocking because it doesn't block further code from running.
+
 <hr>
 <br>
 
@@ -424,3 +436,69 @@ A promise must follow a specific set of rules,
 2. A pending promise may transition into either fufilled or rejected state
 3. A fufilled or rejected promise is settled must not transition into any other state.
 4. Once a promise is settled, value must not change.
+
+`promise.all`
+- Takes an array of promises as as input (iterable) and gets resolved when all the promises get resolved
+or one of them gets rejected.
+
+
+```
+Promise.all([Promise1, Promise2, Promise3])
+  .then(result) => {   console.log(result) }) 
+  .catch(error => console.log(`Error in promises ${error}`))
+```
+
+`promise.race`
+
+```
+var promise1 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 500, 'one');
+});
+var promise2 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, 'two');
+});
+
+Promise.race([promise1, promise2]).then(function(value) {
+  console.log(value); // "two" // Both promises will resolve, but promise2 is faster
+});
+```
+
+<hr>
+<br>
+
+
+## 24. Purpose of double exclamation
+
+- The pupose of exclamation or negation (!!) ensures resulting type is boolean
+- if it was falsey (0, null, undefined) --> `false`
+- if it was truthy (1, etc) --> `true`
+
+<hr>
+<br>
+
+
+## 25. What is isNaN
+
+- `isNan()` function used to determine whether a value is an illegal number
+
+
+```
+isNaN("Hello") // false
+```
+
+<hr>
+<br>
+
+
+## 26. Event Flow (Event Bubbling, Event Capturing)
+
+https://www.youtube.com/watch?v=Q6HAJ6bz7bY
+
+Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event for each of its parent elements first, starting at the top with the global window object. There are two ways of event flow
+
+Top to Bottom(Event Capturing)
+Bottom to Top (Event Bubbling)
+
+<hr>
+<br>
+

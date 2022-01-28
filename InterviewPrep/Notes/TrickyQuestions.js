@@ -70,3 +70,20 @@ for (let i = 0; i < 5; i++) {
     console.log('hi')
     setTimeout(function() { console.log(i); }, i * 1000 );
   }
+
+
+
+// Tricky Question 7
+function foo() {
+    console.log(1);
+
+    setTimeout(() => console.log(2), 0);
+
+    promise.then(() => console.log(3));
+
+    console.log(4);
+
+}
+foo() // 1, 3, 4, 2
+// read on javascript job queue and task queue, promise go to job queue, set timeout go to task queue
+// job queue gets higher precedence than task queue 

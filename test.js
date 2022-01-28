@@ -1,9 +1,16 @@
-// Questions attempted during techinical tests
+function foo() {
+    console.log(1);
 
-// price check
+    setTimeout(() => console.log(2), 0);
 
-// stay positive
+    const promise = new Promise(() => console.log(3));
 
-// counting pairs
+    promise.then((item) => console.log(item));
 
-// scatter-palindrome
+    console.log(4);
+
+}
+
+
+
+foo()

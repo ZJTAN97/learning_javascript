@@ -577,4 +577,49 @@ console.log(a[b]); // output 456
 - Since b and c are both objects, both will be converted to "[object Object]". 
 - Thus both can be used interchangeably.
 
+<hr>
+<br>
+
+
+## 29. What is same-origin policy
+- The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin
+is defined as a combination of URI scheme, hostname and port number. If you enable this policy then it prevents a malicious
+script on one page from obtaining acess to sensitive data on another webpage using Document Object Model (DOM).
+
+<hr>
+<br>
+
+
+## 30. How do you check whether a string contains a substring?
+
+1. Using ES6 provided `String.prototype.includes` method to test a string contains a substring
+
+```
+
+const mainString = "hello", subString = "hell";
+mainString.includes(subString);
+
+```
+
+2. Using `indexOf`. If index value is not equal -1 means substring exist in main string.
+
+```
+const mainString = "hello", subString = "hell";
+mainString.indexOf(subString) !== -1
+
+```
+
+3. Regex
+
+```
+const mainString = "hello", regex = /hell/;
+regex.test(mainString)
+```
+
+
+<hr>
+<br>
+
+
+// Continue at object questions (125 onwards)
 

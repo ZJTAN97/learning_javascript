@@ -16,9 +16,6 @@
 
     let result = [];
     
-    const firstNumSet = hash[digits.charAt(0)];
-
-
     const backTrack = (index, str) => {
 
         if(index === digits.length) {

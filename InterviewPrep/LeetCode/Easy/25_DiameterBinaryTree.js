@@ -18,24 +18,16 @@ function TreeNode(val, left, right) {
 
         const left = dfs(node.left);
         const right = dfs(node.right);
-
         diameter = Math.max(diameter, left + right);
-
         return 1 + Math.max(left, right);
 
     }
-
     dfs(root);
-
-    console.log(diameter);
-
-    return diameter;
-    
-
-
+    return diameter;  
 };
 
-
+// O(n) time, just traversing the tree
+// O(n) space
 
 const a = new TreeNode(1);
 const b = new TreeNode(2);
@@ -47,5 +39,6 @@ a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
+
 
 console.log(diameterOfBinaryTree(a));

@@ -719,8 +719,20 @@ How do you trim a string in JavaScript?
 
 ```
 
+String.prototype.repeat
+
+```
+
+const chorus = "Because I am happy ";
+
+chorus.repeat(5); // will literally repeat 5 times
+
+```
+
+
 <hr>
 <br>
+
 
 // continue from question 135
 

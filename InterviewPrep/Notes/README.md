@@ -301,6 +301,46 @@ comma seperated list of arguments.
 in order of insertion.
 - Can get size of `Map` with size property but number of properties on Object must be determined manually.
 - `Map` is iterable and thus can be directly iterated. Iterating over object requires obtaining its keys and iterating over them.
+
+Example for iterating over object
+
+```
+const object = {a: 1, b: 2, c: 3};
+
+// method 1
+for(const property in object) {
+  console.log(`${property}: ${object[property]}`);
+}
+
+
+// method 2
+// Object.keys() --> returns array of keys of the object
+for(const key of Object.keys(object)) {
+  console.log(`${key}: ${object[key]}`);
+}
+
+
+// method3
+for(let [key, value] of Object.entries(object)) {
+  console.log(`${key}: ${value}`);
+}
+
+```
+
+Example for iterating over Map
+
+```
+
+// method 1
+const mapOne = new Map([['a', 1], ['b', 2], ['c', 3]]);
+
+for(const [key, value] of mapOne.entries()) {
+  console.log(key, value)
+}
+
+
+```
+
 <hr>
 <br>
 
@@ -621,5 +661,66 @@ regex.test(mainString)
 <br>
 
 
-// Continue at object questions (125 onwards)
+## 31. More JavaScript Objects
+
+To check whether a key exists in the object
+
+```
+
+"key" in obj // to check if a key exists
+
+!("key" in obj) // to check if a key does not exist
+
+
+obj.hasOwnProperty("key") // to particularly test for properties of the object instance (and not inherited properties)
+
+```
+
+Testing for an empty object
+
+```
+
+Object.entries(obj).length === 0 && obj.constructor === Object
+// Since date object length is 0, you need to check constructor as well.
+
+
+```
+
+<hr>
+<br>
+
+
+## 32. More on strings manipulation
+
+How to make first letter of the string in an uppercase?
+
+```
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+```
+
+How do you check if a string starts with another string?
+
+```
+
+"Good morning".startsWith("Good"); // true
+"Good morning".startsWith("morning"); // false
+
+```
+
+How do you trim a string in JavaScript?
+
+```
+
+" Hello World  ".trim(); // Hello World
+
+```
+
+<hr>
+<br>
+
+// continue from question 135
 

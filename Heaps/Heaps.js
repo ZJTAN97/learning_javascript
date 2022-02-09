@@ -65,6 +65,40 @@ class Heap {
         }
 
     }
+
+    poll() {
+        const maxValue = this.data[0];
+        this.data[0] = this.data[this.data.length - 1];
+        this.data.length --; // remove last element
+        this.heapifyDown();
+
+        return maxValue;
+    }
+
+
+    heapifyDown() {
+        let currentIndex = 0;
+
+        while (this.data[this.getLeftChildIndex(currentIndex)] !== undefined) {
+            let biggestChildIndex = this.getLeftChildIndex(currentIndex);
+
+            if(this.data[this.getRightChildIndex(currentIndex)] !== undefined 
+                && this.data[this.getRightChildIndex(currentIndex)] 
+                > this.data[this.getLeftChildIndex(currentIndex)]
+            ) {
+
+                biggestChildIndex = this.getRightChildIndex(currentIndex);
+            }
+
+            if (this.data[currentIndex] < this.data[biggestChildIndex]) {
+                this.swap(currentIndex, biggestChildIndex);
+                currentIndex = biggestChildIndex;
+            } else {
+                return;
+            }
+        }
+    }
+
 }
 
 
@@ -74,5 +108,11 @@ const heap = new Heap();
 heap.push(25);
 heap.push(5);
 heap.push(40);
+heap.push(70);
+heap.push(90);
+heap.push(44);
 
-console.log(heap);
+heap.poll(44);
+
+
+console.log(heap.data.join(','));

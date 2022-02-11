@@ -28,24 +28,21 @@ const robIterative = function(nums) {
 
     // O(n) Time
     // O(1) Space 
-    
+
     let robbed1 = 0;
     let robbed2 = 0;
 
-    for(let i=nums.length - 1; i>= 0; i--) {
+    for(let i=nums.length-1; i>=0; i--) {
         const sumSkipped = robbed1;
         const sumRobbed = robbed2 + nums[i];
 
-        const maxRobbed = Math.max(sumRobbed, sumSkipped);
+        const maxRobbed = Math.max(sumSkipped, sumRobbed);
 
         robbed2 = robbed1;
         robbed1 = maxRobbed;
-
-        console.log(robbed2)
-        
-
     }
 
+    console.log(robbed1);
     return robbed1;
 
 }

@@ -25,94 +25,79 @@
 
  // https://www.youtube.com/watch?v=hzxa4psfxxg
 
-class Heap {
-    constructor() {
-        this.data = [];
+ class MinHeap{
+    constructor(){
+        this.storage = [];
+        this.size = 0;
     }
 
-    getParentIndex(i) {
-        return Math.floor((i-1)/2);
+    getLeftChildIndex(index){
+        return 2 * index + 1;
     }
 
-    getLeftChildIndex(i) {
-        return i * 2;
+    getRightChildIndex(index){
+        return 2 * index + 2;
     }
 
-    getRightChildIndex(i) {
-        return i * 2 + 1;
+    getParentIndex(index){
+        return Math.floor((index - 1) / 2)
     }
 
-
-    swap(i1, i2) {
-        const temp = this.data[i1];
-        this.data[i1] = this.data[i2];
-        this.data[i2] = temp;
+    hasLeftChild(index){
+        return this.getLeftChildIndex(index) < this.size;
     }
 
+    hasRightChild(index){
+        return this.getRightChildIndex(index) < this.size;
+    }
 
-    push(key) {
-        this.data[this.data.length] = key;
+    hasParent(index){
+        return this.getParentIndex(index) >= 0;
+    }
+
+    leftChild(index){
+        return this.storage[this.getLeftChildIndex(index)];
+    }
+
+    rightChild(index){
+        return this.storage[this.getRightChildIndex(index)];
+    }
+
+    parent(index){
+        return this.storage[this.getParentIndex(index)];
+    }
+
+    isFull(){
+        return this.size == this.capacity;
+    }
+    
+    swap(index1,index2){
+        let temp = this.storage[index1];
+        this.storage[index1] = this.storage[index2];
+        this.storage[index2] = temp;
+    }
+
+    insert(data){
+        this.storage[this.size] = data;
+        this.size += 1;
         this.heapifyUp();
     }
-
-
-    heapifyUp() {
-        let currentIndex = this.data.length - 1;
-
-        while(this.data[currentIndex] > this.data[this.getParentIndex(currentIndex)]) {
-            this.swap(currentIndex, this.getParentIndex(currentIndex));
-            currentIndex = this.getParentIndex(currentIndex);
-        }
-
+    
+    heapifyUp(){
+         let index = this.size - 1;
+         while(this.hasParent(index) && 
+                 this.parent(index) > this.storage[index]){
+            this.swap(this.getParentIndex(index),index);
+            index = this.getParentIndex(index);
+         }
     }
-
-    poll() {
-        const maxValue = this.data[0];
-        this.data[0] = this.data[this.data.length - 1];
-        this.data.length --; // remove last element
-        this.heapifyDown();
-
-        return maxValue;
-    }
-
-
-    heapifyDown() {
-        let currentIndex = 0;
-
-        while (this.data[this.getLeftChildIndex(currentIndex)] !== undefined) {
-            let biggestChildIndex = this.getLeftChildIndex(currentIndex);
-
-            if(this.data[this.getRightChildIndex(currentIndex)] !== undefined 
-                && this.data[this.getRightChildIndex(currentIndex)] 
-                > this.data[this.getLeftChildIndex(currentIndex)]
-            ) {
-
-                biggestChildIndex = this.getRightChildIndex(currentIndex);
-            }
-
-            if (this.data[currentIndex] < this.data[biggestChildIndex]) {
-                this.swap(currentIndex, biggestChildIndex);
-                currentIndex = biggestChildIndex;
-            } else {
-                return;
-            }
-        }
-    }
-
+    
 }
 
 
+const minHeap = new MinHeap();
 
+minHeap.insert(10);
+minHeap.insert(5);
 
-const heap = new Heap();
-heap.push(25);
-heap.push(5);
-heap.push(40);
-heap.push(70);
-heap.push(90);
-heap.push(44);
-
-heap.poll(44);
-
-
-console.log(heap.data.join(','));
+console.log(minHeap);

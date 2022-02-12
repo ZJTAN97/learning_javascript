@@ -2,6 +2,9 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+// https://www.youtube.com/watch?v=iGkRO_lgHzg
+
 const rob = function(nums,id=0, memo={}) {
     
     // O(2^n) time
@@ -29,21 +32,26 @@ const robIterative = function(nums) {
     // O(n) Time
     // O(1) Space 
 
-    let robbed1 = 0;
-    let robbed2 = 0;
-
-    for(let i=nums.length-1; i>=0; i--) {
-        const sumSkipped = robbed1;
-        const sumRobbed = robbed2 + nums[i];
-
-        const maxRobbed = Math.max(sumSkipped, sumRobbed);
-
-        robbed2 = robbed1;
-        robbed1 = maxRobbed;
+    if (nums === null || nums.length === 0) {
+        return 0;
     }
 
-    console.log(robbed1);
-    return robbed1;
+    if (nums.length === 1) {
+        return nums[0];
+    }
+
+    let runningTotal = [];
+    runningTotal[0] = nums[0];
+    runningTotal[1] = Math.max(nums[0], nums[1]);
+
+    for(let i=2; i<nums.length; i++) {
+        runningTotal[i] = Math.max(runningTotal[i-1], runningTotal[i-2] + nums[i]);
+    }
+
+    console.log(runningTotal)
+    
+    return runningTotal[runningTotal.length-1];
+
 
 }
 

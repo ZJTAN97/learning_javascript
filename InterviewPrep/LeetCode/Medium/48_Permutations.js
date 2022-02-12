@@ -4,37 +4,27 @@
  */
  const permute = function(nums) {
 
-    let result = [];
-
-    const dfs = (nums, permutation, used, result) => {
-
-        // base case
-        if(permutation.length === nums.length) {
-            // make deep copy otherwise we will append same list over and over
-            result.push(Array.from(permutation.slice()));
+    const result = [];
+    
+    const dfs = (combination, used) => {
+        
+        if(combination.length === nums.length) {
+            result.push(combination.slice());
             return;
         }
-
+        
         for(let i=0; i<nums.length; i++) {
             if(!used[i]) {
-                // add num to permutation, mark as used.
-                permutation.push(nums[i]);
+                combination.push(nums[i]);
                 used[i] = true;
-
-                // Branch 1. Continue digging depper
-                dfs(nums, permutation, used, result);
-
-                // Branch 2. Back track remove num from permutation and mark as unused
-                permutation.pop();
+                dfs(combination, used);
+                combination.pop();
                 used[i] = false;
-            }
-
-        }
+            }   
+        }    
     }
-
-    dfs(nums, [], Array(nums.length), result);
-    console.log(result);
-
+    
+    dfs([], Array(nums.length));
     return result;
 
 };

@@ -30,7 +30,7 @@ const rob = function(nums,id=0, memo={}) {
 const robIterative = function(nums) {
 
     // O(n) Time
-    // O(1) Space 
+    // O(n) Space 
 
     if (nums === null || nums.length === 0) {
         return 0;

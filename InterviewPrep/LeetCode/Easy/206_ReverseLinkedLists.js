@@ -19,6 +19,21 @@ const reverseList = function(head) {
 }
 
 
+const reverseRecursive = function(head) {
+
+    if(!head) return null;
+
+    let newHead = head;
+    if (head.next) {
+        newHead = reverseRecursive(head.next);
+        head.next.next = head;
+    }
+
+    head.next = null;
+    return newHead;
+}
+
+
 let a = new Node('A');
 let b = new Node('B');
 let c = new Node('C');

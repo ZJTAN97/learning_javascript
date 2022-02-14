@@ -17,8 +17,7 @@
             hash[anagramCheck].push(str);
         } else {
             hash[anagramCheck] = [str];
-        }
-                
+        }    
     }
     
     return Object.values(hash);

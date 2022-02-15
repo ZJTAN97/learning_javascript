@@ -733,6 +733,51 @@ chorus.repeat(5); // will literally repeat 5 times
 <hr>
 <br>
 
+## 33. String.prototype.substring()
+
+- The substring() method returns the part of the string between the start and end indexes.
+- substring(indexStart, indexEnd)
+
+```
+
+let anyString = 'Mozilla'
+
+// Displays 'M'
+console.log(anyString.substring(0, 1))
+console.log(anyString.substring(1, 0))
+
+// Displays 'Mozill'
+console.log(anyString.substring(0, 6))
+
+// Displays 'lla'
+console.log(anyString.substring(4))
+console.log(anyString.substring(4, 7))
+console.log(anyString.substring(7, 4))
+
+// Displays 'Mozilla'
+console.log(anyString.substring(0, 7))
+console.log(anyString.substring(0, 10))
+
+```
+
+
+The difference between `substring()` and `substr()`
+- `substr()` represent the starting index and the number of characters to include in the returned string
+- `substring()` represent the starting and ending indexes
+
+
+The difference between `substring()` and `slice()`
+- The `substring()` method swaps its arguments if `indexStart` is greater than `indexEnd`.
+- The `slice()` returns an empty string if this is the case
+
+```
+
+let text = "Mozilla";
+console.log(text.substring(5,2)); // "zil"
+console.log(text.slice(5,2)); // ""
+
+```
+
 
 // continue from question 135
 

@@ -729,7 +729,6 @@ chorus.repeat(5); // will literally repeat 5 times
 
 ```
 
-
 <hr>
 <br>
 
@@ -777,6 +776,28 @@ console.log(text.substring(5,2)); // "zil"
 console.log(text.slice(5,2)); // ""
 
 ```
+
+<hr>
+<br>
+
+## 34. String localeCompare()
+The `localeCompare()` method returns a number indicating whether a reference string comes before, or after, or is the same as the given string in sort order.
+
+```
+
+// The letter "a" is before "c" yielding a negative value
+'a'.localeCompare('c'); // -2 or -1 (or some other negative value)
+
+// Alphabetically the word "check" comes after "against" yielding a positive value
+'check'.localeCompare('against'); // 2 or 1 (or some other positive value)
+
+// "a" and "a" are equivalent yielding a neutral value of zero
+'a'.localeCompare('a'); // 0
+
+
+```
+
+
 
 
 // continue from question 135

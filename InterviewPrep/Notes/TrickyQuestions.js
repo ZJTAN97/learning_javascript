@@ -65,21 +65,24 @@ obj.method(fn, 1);
 
 
 // Tricky Question 6
-console.log('----- Question 6 ------')
-for (let i = 0; i < 5; i++) {
-    console.log('hi')
-    setTimeout(function() { console.log(i); }, i * 1000 );
-  }
+// console.log('----- Question 6 ------')
+// for (let i = 0; i < 5; i++) {
+//     console.log('hi')
+//     setTimeout(function() { console.log(i); }, i * 1000 );
+//   }
 
 
 
 // Tricky Question 7
+console.log("------ Question 7 --------")
 function foo() {
     console.log(1);
 
     setTimeout(() => console.log(2), 0);
 
-    promise.then(() => console.log(3));
+    const promise = new Promise((resolve, reject) => {
+        resolve(console.log(3));
+    })
 
     console.log(4);
 

@@ -19,8 +19,9 @@ const Toast = {
         }
 
         this.hideTimeout = setTimeout(() => {
+            // wait 1.5s before making notification disappear
             this.el.classList.remove('toast--visible');
-        }, 1500);
+        }, 3000);
     }
 
 };

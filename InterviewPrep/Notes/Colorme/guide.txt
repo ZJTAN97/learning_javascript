@@ -1,0 +1,13 @@
+--> a container of 1-9 numbers
+
+1, 2, 3
+4, 5 ,6 
+7, 8, 9
+
+input at left
+button beneath input
+
+
+Input can only be 1-9
+button upon clicked will color the respective box
+when another color selected, will uncolor prev box and color next box

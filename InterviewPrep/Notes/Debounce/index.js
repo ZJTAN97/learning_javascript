@@ -31,3 +31,5 @@ const input = document.getElementById("filterText");
 input.addEventListener('input', debounce(e => {
     console.log(`Text input is ${e.target.value} and currently searching..`)
 }, 250));
+
+

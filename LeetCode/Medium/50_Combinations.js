@@ -5,10 +5,9 @@
  */
  const combine = function(n, k) {
 
-
     const result = [];
 
-    const backTrack = (index, combination) => {
+    const dfs = (index, combination) => {
 
         if(combination.length === k) {
             result.push(combination.slice());
@@ -16,15 +15,15 @@
         }
 
         for(let i=index; i<n; i++) {
-            combination.push(i+1);
-            backTrack(i+1, combination);
-            combination.pop();
+            if(combination.length < k) {
+                combination.push(i+1);
+                dfs(i+1, combination);
+                combination.pop();
+            }
         }
+    };
 
-    }
-
-    backTrack(0, []);
-
+    dfs(0, []);
     return result;
 };
 

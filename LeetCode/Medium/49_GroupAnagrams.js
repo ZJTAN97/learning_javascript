@@ -19,6 +19,7 @@
             hash[anagramCheck] = [str];
         }    
     }
+ 2
     
     return Object.values(hash);
     

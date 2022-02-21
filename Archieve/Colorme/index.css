@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+.numbers {
+    min-width: 50%;
+}
+.row {
+    display: flex;
+}
+.item {
+    flex-grow: 1;
+    text-align: center;
+    padding: 30px 10px 30px 10px;
+    border: solid 1px #dfdfdf;
+}

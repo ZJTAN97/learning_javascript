@@ -3,21 +3,22 @@
  * @return {number[]}
  */
  const largestDivisibleSubset = function(nums) {
-    
+
     nums.sort((a,b) => a-b);
 
     const dp = Array(nums.length).fill(1);
 
+    // i pointer --> larger number
+    // j pointer --> smaller number
+    // i % j
     for(let i=0; i<nums.length; i++) {
-        let currMax = 0;
         for(let j=0; j<i; j++) {
             if(nums[i] % nums[j] === 0) {
-                currMax = Math.max(currMax, dp[j]);
+                dp[i] = Math.max(dp[i], 1 + dp[j]);
             }
         }
-        dp[i] = currMax + 1;
     }
-    
+
     let prev = -1;
     let max = Math.max(...dp);
     const result = [];
@@ -31,7 +32,7 @@
     }
 
     console.log(result);
-    return result;
+    
 
 };
 
